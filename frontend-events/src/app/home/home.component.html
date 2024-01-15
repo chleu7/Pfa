@@ -1,0 +1,32 @@
+<div id="slider" class="slider">
+  <div #videosContainer>
+    <video *ngFor="let video of videos; let i = index" autoplay loop playsinline [hidden]="selectedVideoIndex !== i"
+      class="back-video">
+      <source [src]="video.src" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="slider-inner">
+    <div id="slider-content">
+      <h2 id="slide-title" class="title-word title-word-1">{{ slides[selectedVideoIndex].title }}</h2>
+      <div id="slide-status" class="title-word title-word-2">{{ slides[selectedVideoIndex].status }}</div>
+    </div>
+
+
+  </div>
+
+  <div id="pagination" class="pagination">
+    <button *ngFor="let slide of slides; let i = index" [class.active]="selectedVideoIndex === i"
+      (click)="selectVideo(i)" [attr.data-slide]="i"></button>
+  </div>
+
+  <div class="content">
+    <h1>IMY Events</h1>
+    <button class="button type1" (click)="onTrouverClick()">
+      <span class="btn-txt">Trouver</span>
+    </button>
+  </div>
+</div>
+<div class="container">
+
+</div>
